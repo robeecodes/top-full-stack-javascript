@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     border: green 1px solid;
+    list-style-type: none;
 }
 
 /***** Fonts *****/
@@ -40,15 +41,32 @@ aside {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
 
+    padding: 1.25rem;
+
+    font-size: 1.25rem;
     color: white;
     font-weight: bold;
+
     background-color: #1992d4;
+}
+
+aside i {
+    width: 2rem;
+    margin-right: 1rem;
 }
 
 aside a {
     color: white;
     font-weight: bold;
     text-decoration: none;
+}
+
+aside ul {
+    margin-top: 3rem;
+}
+
+aside ul li {
+    margin-block: 1em;
 }
 
 /***** Main Content Styles *****/

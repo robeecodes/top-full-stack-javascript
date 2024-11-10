@@ -27,6 +27,29 @@ p, a, h1, h2, h3 {
     margin-block: calc(1ex / 0.42);
 }
 
+h3 {
+    font-size: 1.1rem;
+}
+
+/***** Components *****/
+.card {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border-radius: .5rem;
+    padding: 1rem;
+
+    transition: all .2s ease;
+}
+
+.card:hover {
+    transform: translateY(-.08rem) scale(1.02);
+}
+
+.card p {
+    font-weight: lighter;
+    color: dimgray;
+}
+
 /***** Layout *****/
 
 .container {
@@ -51,7 +74,7 @@ aside {
 
     padding: 1.5rem;
 
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     color: white;
     font-weight: bold;
 
@@ -70,7 +93,7 @@ aside a {
 }
 
 aside ul {
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 aside ul li {
@@ -78,12 +101,13 @@ aside ul li {
 }
 
 /***** Main Content Styles *****/
+
 main {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
 
     display: grid;
-    grid-template: auto auto / 2fr 1fr;
+    grid-template: auto auto / 3fr 1fr;
     grid-gap: 1rem;
 
     background-color: #e2e8f0;
@@ -94,6 +118,8 @@ main {
 main h2 {
     margin-bottom: .5em;
 }
+
+/** Projects **/
 
 #projects {
     grid-column: 1 / span 1;
@@ -114,34 +140,14 @@ main h2 {
     grid-gap: 2rem;
 }
 
-/***** Components *****/
-.card {
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    border-radius: .5rem;
-    padding: 1rem;
-
-    transition: all .2s ease;
-}
-
-.card:hover {
-    transform: translateY(-.08rem) scale(1.02);
-}
-
-.card p {
-    font-weight: lighter;
-    color: dimgray;
-}
-
-/***** Projects Section Edits *****/
-.card .icons {
+#projects .card .icons {
     display: grid;
     grid-template: auto / repeat(3, min-content);
     justify-content: end;
     grid-gap: 1.5rem;
 }
 
-.card .icons button {
+#projects .card .icons button {
     font-size: 1.25rem;
     width: 2rem;
 
@@ -153,4 +159,21 @@ main h2 {
 
 #projects .card {
     border-left: .5rem solid #f0b429;
+}
+
+/** Announcements **/
+#announcements .card li:not(:last-child) {
+    border-bottom: solid 1px lightgray;
+}
+
+#announcements .card {
+    padding-inline: 2rem;
+}
+
+#announcements .card h3 {
+    margin-bottom: 0;
+}
+
+#announcements .card p {
+    margin-top: .25em;
 }

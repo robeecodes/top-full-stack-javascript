@@ -49,9 +49,9 @@ aside {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
 
-    padding: 1.25rem;
+    padding: 1.5rem;
 
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     color: white;
     font-weight: bold;
 
@@ -70,7 +70,7 @@ aside a {
 }
 
 aside ul {
-    margin-top: 3rem;
+    margin-top: 5rem;
 }
 
 aside ul li {
@@ -114,13 +114,26 @@ main h2 {
     grid-gap: 2rem;
 }
 
+/***** Components *****/
 .card {
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     border-radius: .5rem;
     padding: 1rem;
+
+    transition: all .2s ease;
 }
 
+.card:hover {
+    transform: translateY(-.08rem) scale(1.02);
+}
+
+.card p {
+    font-weight: lighter;
+    color: dimgray;
+}
+
+/***** Projects Section Edits *****/
 .card .icons {
     display: grid;
     grid-template: auto / repeat(3, min-content);
@@ -138,7 +151,6 @@ main h2 {
     background-color: transparent;
 }
 
-/* Add orange border for projects */
 #projects .card {
     border-left: .5rem solid #f0b429;
 }

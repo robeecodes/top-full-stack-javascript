@@ -44,7 +44,6 @@ h2, p, legend {
 /***** General Layout *****/
 body {
     display: flex;
-    max-width: 90rem;
     margin-inline: auto;
 
     min-height: 100vh;

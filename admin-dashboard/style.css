@@ -2,8 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    border: green 1px solid;
     list-style-type: none;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 /***** Fonts *****/
@@ -20,6 +23,10 @@ html {
     line-height: calc(1ex / 0.32);
 }
 
+p, a, h1, h2, h3 {
+    margin-block: calc(1ex / 0.42);
+}
+
 /***** Layout *****/
 
 .container {
@@ -28,6 +35,7 @@ html {
 }
 
 /***** Header Styles *****/
+
 header {
     grid-column: 2 / span 1;
 
@@ -66,7 +74,7 @@ aside ul {
 }
 
 aside ul li {
-    margin-block: 1em;
+    margin-block: .75em;
 }
 
 /***** Main Content Styles *****/
@@ -76,9 +84,61 @@ main {
 
     display: grid;
     grid-template: auto auto / 2fr 1fr;
+    grid-gap: 1rem;
+
+    background-color: #e2e8f0;
+
+    padding: 0 1.25rem;
+}
+
+main h2 {
+    margin-bottom: .5em;
 }
 
 #projects {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
+
+    padding-bottom: 2rem;
+
+    display: grid;
+    grid-template: auto 1fr / 1fr 1fr;
+}
+
+#projects .cards {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max(18rem, calc(100% / 2 - 2rem)), 1fr));
+    grid-gap: 2rem;
+}
+
+.card {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.card .icons {
+    display: grid;
+    grid-template: auto / repeat(3, min-content);
+    justify-content: end;
+    grid-gap: 1.5rem;
+}
+
+.card .icons button {
+    font-size: 1.25rem;
+    width: 2rem;
+
+    text-align: center;
+
+    border: none;
+    background-color: transparent;
+}
+
+/* Add orange border for projects */
+#projects .card {
+    border-left: .5rem solid #f0b429;
 }

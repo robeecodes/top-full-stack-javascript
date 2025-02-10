@@ -6,3 +6,5 @@ Sign-Up Form | [Repository](https://github.com/robeecodes/top-full-stack-javascr
 Admin Dashboard | [Repository](https://github.com/robeecodes/top-full-stack-javascript/tree/main/admin-dashboard) | [View on Github Pages](https://robeecodes.github.io/top-full-stack-javascript/admin-dashboard/)
 
 Library | [Repository](https://github.com/robeecodes/top-full-stack-javascript/tree/main/library) | [View on Github Pages](https://robeecodes.github.io/top-full-stack-javascript/library/)
+
+Tic Tac Toe | [Repository](https://github.com/robeecodes/top-full-stack-javascript/tree/main/tic-tac-toe) | [View on Github Pages](https://robeecodes.github.io/top-full-stack-javascript/tic-tac-toe/)

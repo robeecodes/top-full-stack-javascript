@@ -13,10 +13,10 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
 
-    <script defer src="index.js"></script>
+    <script type="module" defer src="index.js"></script>
 </head>
 <body>
-<main>
+<main class="container">
     <div id="booksTable" class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -54,7 +54,7 @@
                             <input type="text" class="form-control" id="bookAuthor" placeholder="Alexandre Dumas">
                             <label for="bookAuthor">Author</label>
                         </div>
-                        <div class="form-check">
+                        <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" value="" id="checkReadStatus">
                             <label class="form-check-label" for="checkReadStatus">
                                 Click here if you've already read the book
@@ -63,7 +63,7 @@
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
-                    <div id="invalidEntry" class="alert alert-danger mt-3 collapse">This book already exists!</div>
+                    <div id="invalidEntry" class="alert alert-danger mt-3 collapse"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -1,0 +1,167 @@
+@import url(https://fonts.bunny.net/css?family=vt323:400);
+
+/* Set base variables */
+:root {
+    --x-colour: #e482c9;
+    --o-colour: #82e4e4;
+
+    --current-player-colour: var(--x-colour);
+
+    --body-colour: #1e2327;
+    --primary-colour: 205, 205, 230;
+    --accent-colour: #a0a0b3;
+
+    --fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
+    --fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+    --fs-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
+    --fs-lg: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
+    --fs-xl: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
+    --fs-xxl: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
+    --fs-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
+}
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'VT323', monospace;
+    font-weight: 400;
+    color: var(--accent-colour);
+}
+
+/* Fonts */
+h1 {
+    font-size: var(--fs-xxxl);
+    color: rgb(var(--primary-colour));
+}
+
+h2 {
+    font-size: var(--fs-lg);
+    line-height: calc(1ex / 0.42);
+    margin: calc(1ex / 0.42) 0;
+}
+
+p {
+    line-height: calc(1ex / 0.32);
+    margin: calc(1ex / 0.32) 0;
+}
+
+/* Layout */
+body {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem;
+
+    min-height: 100vh;
+
+    background-color: var(--body-colour);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#board {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+
+    width: max(20rem, 50vw);
+    max-width: 50vh;
+
+    aspect-ratio: 1/1;
+}
+
+/* Board hover effects */
+
+#board.playerX, #board .tile.playerX {
+    --current-player-colour: var(--x-colour);
+}
+
+#board.playerO, #board .tile.playerO {
+    --current-player-colour: var(--o-colour);
+}
+
+#board .tile {
+    cursor: pointer;
+
+    border-radius: 0;
+    border-color: var(--accent-colour);
+    border-width: .01rem;
+
+    background-color: var(--body-colour);
+
+    position: relative;
+
+    overflow: hidden;
+
+    color: var(--current-player-colour);
+
+    font-size: var(--fs-xxxl);
+}
+
+#board .tile:disabled {
+    cursor: default;
+}
+
+#board .tile:active {
+    border-style: outset;
+}
+
+#board .tile::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 0;
+    height: 0;
+
+    border-radius: 50%;
+
+    background-color: var(--current-player-colour);
+    opacity: 0;
+
+    transition: all 0.6s ease;
+}
+
+#board .tile:not(:disabled):hover::after {
+    width: 200%;
+    height: 200%;
+
+    opacity: 1;
+}
+
+/* Reset Game Button */
+#resetGame {
+    cursor: pointer;
+
+    margin: 2rem;
+    padding: 1rem;
+
+    border-color: var(--accent-colour);
+    border-width: .01rem;
+
+    background-color: var(--body-colour);
+
+    font-size: var(--fs-md);
+
+    transition: all 0.6s ease;
+}
+
+#resetGame:hover {
+    color: rgba(var(--primary-colour), 1);
+    box-shadow: rgba(var(--primary-colour), 0.2) 0px 8px 24px;
+}

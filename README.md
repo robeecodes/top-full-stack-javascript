@@ -8,3 +8,5 @@ Admin Dashboard | [Repository](https://github.com/robeecodes/top-full-stack-java
 Library | [Repository](https://github.com/robeecodes/top-full-stack-javascript/tree/main/library) | [View on Github Pages](https://robeecodes.github.io/top-full-stack-javascript/library/)
 
 Tic Tac Toe | [Repository](https://github.com/robeecodes/top-full-stack-javascript/tree/main/tic-tac-toe) | [View on Github Pages](https://robeecodes.github.io/top-full-stack-javascript/tic-tac-toe/)
+
+Restaurant | [Repository](https://github.com/robeecodes/top-full-stack-javascript/tree/main/restaurant) | [View on Github Pages](https://robeecodes.github.io/top-full-stack-javascript/restaurant/dist/)

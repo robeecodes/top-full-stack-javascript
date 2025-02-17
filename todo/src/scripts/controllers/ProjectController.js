@@ -1,0 +1,1 @@
+// Manages projects, interacting with ProjectService.js.

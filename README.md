@@ -44,7 +44,7 @@ A restaurant website showcasing different sections in a single-page app. Built t
 ![Restaurant Screenshot](project-screenshots/restaurant.png)
 
 
-## Tech Stack 🚀
+## Tech Stack ⚙️
 
 - **HTML5** - Structure of the web pages
 - **CSS3** - Styling and responsiveness

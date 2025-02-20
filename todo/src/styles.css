@@ -1,0 +1,148 @@
+@import url(https://fonts.bunny.net/css?family=lexend-deca:100,300,600);
+
+/** General Styling **/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Lexend Deca', Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+}
+
+:root {
+    --fs-sm: clamp(0.8rem, 0.08vi + 0.78rem, 0.84rem);
+    --fs-base: clamp(1rem, 0.23vi + 0.94rem, 1.13rem);
+    --fs-md: clamp(1.25rem, 0.45vi + 1.14rem, 1.5rem);
+    --fs-lg: clamp(1.56rem, 0.79vi + 1.36rem, 2rem);
+    --fs-xl: clamp(1.95rem, 1.29vi + 1.63rem, 2.66rem);
+    --fs-xxl: clamp(2.44rem, 2.02vi + 1.94rem, 3.55rem);
+    --fs-xxxl: clamp(3.05rem, 3.06vi + 2.29rem, 4.73rem);
+}
+
+h1 {
+    font-size: var(--fs-xxl);
+    margin-bottom: .25em;
+}
+
+h2 {
+    font-size: var(--fs-xl);
+    margin-bottom: .5em;
+}
+
+h1, h2 {
+    line-height: calc(1ex / 0.42);
+}
+
+h3 {
+    font-size: var(--fs-lg);
+    line-height: calc(1ex / 0.38);
+}
+
+button {
+    cursor: pointer;
+}
+
+p, a, button {
+    line-height: calc(1ex / 0.36);
+    margin-bottom: .25em;
+}
+
+
+body {
+    display: grid;
+    grid-template-columns: .75fr 3fr;
+
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+
+/** Project Navigation **/
+header {
+    grid-column: 1 / span 1;
+
+    padding: 2rem;
+
+    background-color: whitesmoke;
+}
+
+header nav {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+
+    border-bottom: 1px solid lightgray;
+
+    max-height: 75vh;
+    overflow: auto;
+}
+
+header nav li {
+    list-style-type: "→ ";
+    list-style-position: inside;
+
+    padding-inline: .5em;
+
+    border-radius: .25em;
+
+    transition: all .25s ease-in-out;
+}
+
+header nav li button {
+    border: 0;
+    background-color: transparent;
+}
+
+header nav li:has(> button:hover) {
+    background-color: lightgray;
+}
+
+header nav li:has(> button[aria-selected="true"]) {
+    background-color: lightgray;
+}
+
+#create-project-button {
+    position: sticky;
+    top:0;
+
+    width: 100%;
+}
+
+main {
+    grid-column: 2 / span 1;
+
+    padding: 5rem;
+
+    overflow: auto;
+}
+
+/* Todo Items */
+.todo-item {
+    position: relative;
+
+    padding: 1.5rem 2rem 1.5rem 5rem;
+    margin: 2rem 2rem 2rem 0;
+
+    max-width: 90%;
+
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.todo-item[data-priority="high"]::after {
+    position: absolute;
+    top: 50%;
+    left: .5em;
+
+    transform: translateY(-50%);
+
+    content: "!";
+    font-weight: bold;
+    font-size: var(--fs-xl);
+
+    color: red;
+}
+
+.todo-item[data-collapsed="true"] .collapsed-item {
+    display: none;
+}

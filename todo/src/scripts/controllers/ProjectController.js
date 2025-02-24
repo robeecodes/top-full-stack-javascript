@@ -18,11 +18,37 @@ export default function ProjectController() {
     let projects = [];
     let currentProject = null;
 
-
+    // Creates form to make a new project
     document.addEventListener("create-project", (e) => {
-        console.log("Create new project");
-        render();
-        // projects.push(service.createProject(title));
+        view.renderNewProjectForm();
+    });
+
+    // Confirms creation of new project
+    document.addEventListener("confirm-new-project", (e) => {
+        const title = e.detail.title;
+
+        if (!title) {
+            alert("Please enter a title");
+            return;
+        }
+        projects.push(service.createProject(title));
+        view.renderProjectList(projects, currentProject);
+    });
+
+    // Cancel creating new project
+    document.addEventListener("cancel-new-project", (e) => {
+        view.renderProjectList(projects, currentProject);
+    })
+
+    // Switch project view
+    document.addEventListener("change-project-view", (e) => {
+        currentProject = e.detail.project;
+        view.renderTasks(currentProject);
+        view.renderProjectList(projects, currentProject);
+    });
+
+    document.addEventListener("create-task", (e) => {
+        console.log(`Create new task for ${currentProject.title}`);
     })
 
     async function loadProjects() {
@@ -32,7 +58,8 @@ export default function ProjectController() {
     }
 
     function render() {
-        view.render(currentProject);
+        view.renderTasks(currentProject);
+        view.renderProjectList(projects, currentProject);
     }
 
     async function init() {

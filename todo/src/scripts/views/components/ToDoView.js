@@ -10,7 +10,16 @@ export default function ToDoView() {
                     <p class="collapsed-item">${toDo.description}</p>
                     <p class="collapsed-item">Due: ${toDo.dueDate}</p>
                     <p class="collapsed-item">Is Completed: ${toDo.isCompleted}</p>
+                    <button>▽</button>
                 `;
+
+        toDoElement.querySelector("button").addEventListener("click", (e) => {
+            const collapsed =
+                toDoElement.getAttribute("data-collapsed") === "true"
+                    ? "false" : "true";
+            toDoElement.setAttribute("data-collapsed", collapsed);
+            e.target.innerHTML = e.target.innerHTML === "▽" ? "△" : "▽";
+        });
 
         return toDoElement;
 

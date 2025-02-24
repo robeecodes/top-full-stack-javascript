@@ -5,20 +5,15 @@ import ProjectController from "./scripts/controllers/ProjectController.js";
 const projectController = new ProjectController();
 await projectController.init();
 
-const createButton = document.querySelector("#create-project-button");
-createButton.addEventListener("click", (e) => {
+const createProjectButton = document.querySelector("#create-project-button");
+createProjectButton.addEventListener("click", (e) => {
     e.preventDefault();
-    createButton.dispatchEvent(new CustomEvent('create-project', {bubbles: true}));
+    createProjectButton.dispatchEvent(new CustomEvent('create-project', {bubbles: true}));
+    createProjectButton.disabled = true;
 });
 
-const projectsList = document.querySelector("header nav ul");
-projectController.projects.forEach((project, idx) => {
-    const entry = document.createElement("li");
-    entry.innerHTML = `<button>${project.title}</button>`;
-    entry.querySelector("button").setAttribute("aria-selected", "false");
-
-    // Always load on default project
-    if (idx === 0) entry.querySelector("button").setAttribute("aria-selected", "true");
-
-    projectsList.appendChild(entry);
+const createTaskButton = document.querySelector("#create-task-button");
+createTaskButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    createTaskButton.dispatchEvent(new CustomEvent('create-task', {bubbles: true}));
 });

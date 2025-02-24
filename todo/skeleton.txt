@@ -1,0 +1,22 @@
+| index.js
+|__ 
+
+Projects
+| ProjectModel
+|__ title: String
+|__ toDoList: ToDoModel[]
+|
+| ProjectService
+|__ loadToDos(project: ProjectModel): void …Loads the todos for the project
+|__ createNewProject(): ProjectModel …Creates a new project
+|__ renameProject(project: ProjectModel): void …Renames the project
+|__ deleteProject(project: ProjectModel): void …Deletes the project
+|
+| ProjectView
+|__ render(toDos: ToDoModel[]): void …Renders the project toDos 
+|
+| ProjectController()
+|__ model: ProjectModel
+|__ service: ProjectService
+|__ projects: ProjectModel[]
+|__ <<event>> create-project …Create a new project and add it to the projects array 

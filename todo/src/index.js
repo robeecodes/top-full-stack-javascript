@@ -15,5 +15,5 @@ createProjectButton.addEventListener("click", (e) => {
 const createTaskButton = document.querySelector("#create-task-button");
 createTaskButton.addEventListener("click", (e) => {
     e.preventDefault();
-    createTaskButton.dispatchEvent(new CustomEvent('create-task', {bubbles: true}));
+    createTaskButton.dispatchEvent(new CustomEvent('create-new-task', {bubbles: true}));
 });

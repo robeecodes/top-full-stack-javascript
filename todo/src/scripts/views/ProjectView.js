@@ -37,8 +37,8 @@ export default function ProjectView() {
                 entry.innerHTML = `<button>${project.title}</button>`;
                 entry.querySelector("button").setAttribute("aria-selected", "false");
 
-                // Always load on default project
-                if (project === currentProject) entry.querySelector("button").setAttribute("aria-selected", "true");
+                // Always load on last project
+                if (project.id === currentProject.id) entry.querySelector("button").setAttribute("aria-selected", "true");
 
                 projectsList.appendChild(entry);
 

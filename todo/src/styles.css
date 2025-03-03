@@ -228,6 +228,66 @@ main #project-view {
     transition: all .25s ease-in-out;
 }
 
+.todo-item .preview-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-item:has(input[type="checkbox"]:checked) {
+    background-color: lightgray;
+    color: gray;
+    border-color: darkgray;
+
+    text-decoration-line: line-through;
+}
+
+.todo-item .label-group {
+    display: flex;
+    align-items: center;
+}
+
+.todo-item input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0 .5rem 0 0;
+
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+
+    position: relative;
+
+    transition: all .25s ease-in-out;
+}
+
+.todo-item input[type="checkbox"]:hover {
+    cursor: pointer;
+    background-color: deepskyblue;
+}
+
+.todo-item input[type="checkbox"]:checked:hover {
+    background-color: crimson;
+}
+
+.todo-item input[type="checkbox"]:checked {
+    background-color: lightgray;
+}
+
+.todo-item input[type="checkbox"]:checked::before {
+    content: "✔";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .todo-item[data-priority="high"] {
     border: 1px solid crimson;
     background-color: #ffeef1;
@@ -245,6 +305,10 @@ main #project-view {
     font-size: var(--fs-xl);
 
     color: crimson;
+}
+
+.todo-item[data-priority="high"]:has(input[type="checkbox"]:checked)::after {
+    content: "";
 }
 
 .todo-item[data-collapsed="true"] .collapsed-item {

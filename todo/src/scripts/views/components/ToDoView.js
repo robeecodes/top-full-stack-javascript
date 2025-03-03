@@ -6,12 +6,33 @@ export default function ToDoView() {
         toDoElement.setAttribute("data-priority", toDo.priority);
         toDoElement.setAttribute("data-collapsed", "true");
         toDoElement.innerHTML = `
+                    <div class="preview-group">
                     <h3>${toDo.title}</h3>
+                        <div class="label-group">
+                            <input type="checkbox" id="${toDo.title}Completed" name="${toDo.title}Completed" value="completed">
+                            <label for="${toDo.title}Completed">Completed?</label><br>
+                        </div>
+                    </div>
                     <p class="collapsed-item">${toDo.description}</p>
                     <p class="collapsed-item">Due: ${toDo.dueDate}</p>
-                    <p class="collapsed-item">Is Completed: ${toDo.isCompleted}</p>
                     <button>▽</button>
                 `;
+
+        const checkbox = toDoElement.querySelector(`#${toDo.title}Completed`);
+
+        checkbox.checked = toDo.isCompleted;
+
+        checkbox.addEventListener('change', (e) => {
+            e.preventDefault();
+            toDo.isCompleted = !toDo.isCompleted;
+
+            checkbox.dispatchEvent(new CustomEvent('completed-task', {
+                bubbles: true,
+                detail: {
+                    toDo: toDo,
+                }
+            }));
+        });
 
         toDoElement.querySelector("button").addEventListener("click", (e) => {
             const collapsed =
@@ -22,21 +43,6 @@ export default function ToDoView() {
         });
 
         return toDoElement;
-
-        // toDoElement.querySelector('.toggle').addEventListener('click', (e) => {
-        //     const idx = e.originalTarget.getAttribute('data-');
-        //     toDoContainer.dispatchEvent(new CustomEvent('toggle', {detail: idx}));
-        // });
-        //
-        // toDoElement.querySelector('.delete').addEventListener('click', (e) => {
-        //     const idx = e.originalTarget.getAttribute('data-id');
-        //     toDoContainer.dispatchEvent(new CustomEvent('delete', {detail: idx}));
-        // });
-        //
-        // toDoElement.querySelector('.update').addEventListener('click', (e) => {
-        //     const idx = e.originalTarget.getAttribute('data-id');
-        //     toDoContainer.dispatchEvent(new CustomEvent('update', {detail: idx}));
-        // });
     }
 
     return { createView };

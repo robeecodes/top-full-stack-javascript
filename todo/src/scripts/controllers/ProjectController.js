@@ -1,21 +1,16 @@
 // Manages projects, interacting with ProjectService.js.
 import ToDoModel from "../models/ToDoModel.js";
-import ProjectModel from "../models/ProjectModel.js";
 import ProjectView from "../views/ProjectView.js";
 import ProjectService from "../services/ProjectService.js";
 
 const toDos = [];
 toDos.push(new ToDoModel(0, "e", "e", new Date(), "high"));
-toDos.push(new ToDoModel(1, "e", "e", new Date(), "low"));
-toDos.push(new ToDoModel(2, "e", "e", new Date(), "medium"));
-toDos.push(new ToDoModel(3, "e", "e", new Date(), "high"));
-toDos.push(new ToDoModel(4, "e", "e", new Date(), "low"));
 
 export default function ProjectController() {
     const view = new ProjectView();
     const service = new ProjectService();
 
-    let projects = [];
+    let projects;
     let currentProject = null;
 
     // Creates form to make a new project
@@ -31,7 +26,10 @@ export default function ProjectController() {
             alert("Please enter a title");
             return;
         }
-        projects.push(service.createProject(title));
+
+        projects.push(service.createProject(projects.length, title));
+        localStorage.setItem("projects", JSON.stringify(projects));
+
         view.renderProjectList(projects, currentProject);
     });
 
@@ -43,19 +41,36 @@ export default function ProjectController() {
     // Switch project view
     document.addEventListener("change-project-view", (e) => {
         currentProject = e.detail.project;
+        localStorage.setItem("currentProject", JSON.stringify(currentProject));
+
         view.renderTasks(currentProject);
         view.renderProjectList(projects, currentProject);
     });
 
-    document.addEventListener("create-task", (e) => {
+    document.addEventListener("create-new-task", (e) => {
         console.log(`Create new task for ${currentProject.title}`);
-    })
+    });
+
+    document.addEventListener("completed-task", (e) => {
+        const updateProject = projects[currentProject.id];
+        updateProject.toDos[e.detail.toDo.id] = e.detail.toDo;
+
+        localStorage.setItem("projects", JSON.stringify(projects));
+    });
+
+    document.addEventListener("confirm-new-task", (e) => {
+        console.log(`New task created for ${currentProject.title}`);
+    });
 
     async function loadProjects() {
-        projects.push(new ProjectModel("Today's Tasks"));
-        projects[0].toDos = toDos;
-        currentProject = projects[0];
+        ({projects, currentProject} = await service.loadProjects());
+
+        if (projects[0].toDos.length === 0) {
+            projects[0].toDos = toDos;
+            localStorage.setItem("projects", JSON.stringify(projects));
+        }
     }
+
 
     function render() {
         view.renderTasks(currentProject);
@@ -67,9 +82,5 @@ export default function ProjectController() {
         render();
     }
 
-    return {
-        projects,
-        currentProject,
-        init
-    }
+    return { init }
 }

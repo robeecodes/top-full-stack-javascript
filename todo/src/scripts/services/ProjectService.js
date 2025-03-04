@@ -26,11 +26,14 @@ export default function ProjectService() {
             } else {
                 currentProject = JSON.parse(localStorage.currentProject);
             }
-
             return {
                 projects: projects,
                 currentProject: currentProject
             };
+        },
+        updateToDo: (projects, currentProject, toDo, newTitle, newDescription) => {
+            projects[currentProject.id].toDos[toDo.id].title = newTitle;
+            projects[currentProject.id].toDos[toDo.id].description = newDescription;
         }
     }
 }

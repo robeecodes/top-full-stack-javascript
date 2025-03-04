@@ -62,6 +62,12 @@ export default function ProjectController() {
         console.log(`New task created for ${currentProject.title}`);
     });
 
+    document.addEventListener("confirm-task-update", (e) => {
+        service.updateToDo(projects, currentProject, e.detail.toDo, e.detail.newTitle, e.detail.newDescription);
+
+        localStorage.setItem("projects", JSON.stringify(projects));
+    });
+
     async function loadProjects() {
         ({projects, currentProject} = await service.loadProjects());
 

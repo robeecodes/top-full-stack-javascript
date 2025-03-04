@@ -228,10 +228,16 @@ main #project-view {
     transition: all .25s ease-in-out;
 }
 
+.todo-item h3 {
+    max-width: 20ch;
+
+    overflow-wrap: break-word;
+}
+
 .todo-item .preview-group {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
 }
 
 .todo-item:has(input[type="checkbox"]:checked) {
@@ -315,7 +321,8 @@ main #project-view {
     display: none;
 }
 
-.todo-item button{
+/* Style expanding button */
+.todo-item button[data-action="expand-todo"]{
     position: relative;
     bottom: 0;
     left: 50%;
@@ -333,7 +340,12 @@ main #project-view {
     transition: all .25s ease-in-out;
 }
 
-.todo-item button:hover{
+.todo-item button[data-action="expand-todo"]:hover{
     font-weight: bold;
     transform: translateX(-50%) scale(1.2);
+}
+
+/* Style content to look editable */
+.todo-item [contenteditable="true"] {
+    border: 1px solid blue;
 }

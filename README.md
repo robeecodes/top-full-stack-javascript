@@ -43,6 +43,14 @@ A restaurant website showcasing different sections in a single-page app. Built t
 
 ![Restaurant Screenshot](project-screenshots/restaurant.png)
 
+---
+
+### 6. **[To Do App](https://robeecodes.github.io/top-full-stack-javascript/todo/dist/)**
+[View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/todo)  
+A to do app built to practice MVC design pattern, DOM manipulation and localstorage access.
+
+![Restaurant Screenshot](project-screenshots/todo.png)
+
 
 ## Tech Stack ⚙️
 

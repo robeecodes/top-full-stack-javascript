@@ -1,13 +1,15 @@
-export default function NewToDoView() {
+export default function NewToDoForm() {
 
     function createView() {
         const toDoElement = document.createElement('div');
         toDoElement.classList.add('todo-item');
+        toDoElement.id = 'todo-form';
+
         toDoElement.innerHTML = `
-                    <form>
+                    <form onsubmit="return false">
                       <div>
                         <label for="title">Title</label>
-                        <input type="text" id="title" name="title" required>
+                        <input type="text" id="title" name="title" pattern="^[A-Za-zÀ-ÿ0-9!?%\\-\\s]+$" title="Alphanumeric values and !?%- are allowed." required>
                       </div>
                       <div>
                         <label for="description">Description</label>
@@ -15,7 +17,7 @@ export default function NewToDoView() {
                       </div>
                       <div>
                         <label for="due_date">Due Date</label>
-                        <input type="date" id="due_date" name="due_date" required>
+                        <input type="date" id="due_date" name="due_date" min=${new Date().toISOString().split('T')[0]} required>
                       </div>
                       <div>
                         <label for="priority">Priority</label>
@@ -28,9 +30,10 @@ export default function NewToDoView() {
                     </form>
                 `;
 
+        // On submit create the new task if the form is valid
         toDoElement.querySelector("button").addEventListener("click", (e) => {
-            e.preventDefault();
-            toDoElement.dispatchEvent(new CustomEvent('confirm-new-task', {bubbles: true}));
+            if (document.querySelector('#todo-form form').checkValidity())
+                toDoElement.dispatchEvent(new CustomEvent('confirm-new-task', {bubbles: true}));
         });
 
         return toDoElement;

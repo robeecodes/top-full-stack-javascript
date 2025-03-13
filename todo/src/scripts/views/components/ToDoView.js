@@ -5,39 +5,31 @@ export default function ToDoView() {
         const toDoElement = document.createElement('div');
         toDoElement.classList.add('todo-item');
         toDoElement.setAttribute("data-priority", toDo.priority);
+        toDoElement.setAttribute("data-id", toDo.id);
         toDoElement.setAttribute("data-collapsed", "true");
+
+        const titleSlug = toDo.title
+            .replace(/[^\w ]+/g, "")
+            .replace(/ +/g, "-");
+
+        const date = new Date(toDo.dueDate).toLocaleDateString();
+
         toDoElement.innerHTML = `
                     <div class="preview-group">
                         <h3 data-editable="true" data-info="todo-title">${toDo.title}</h3>
                         <div>
                             <button data-action="edit-todo">Edit</button>
+                            <button data-action="delete-todo">Delete</button>
                             <div class="label-group">
-                                <input type="checkbox" id="${toDo.title}Completed" name="${toDo.title}Completed" value="completed">
-                                <label for="${toDo.title}Completed">Completed?</label><br>
+                                <input type="checkbox" id="${titleSlug}Completed" name="${titleSlug}Completed" value="completed">
+                                <label for="${titleSlug}Completed">Completed?</label><br>
                             </div>
                         </div>
                     </div>
                     <p class="collapsed-item" data-editable="true" data-info="todo-description">${toDo.description}</p>
-                    <p class="collapsed-item" data-editable="true" data-info="todo-date">Due: ${toDo.dueDate}</p>
+                    <p class="collapsed-item" data-editable="true" data-info="todo-date">Due: ${date}</p>
                     <button data-action="expand-todo">▽</button>
                 `;
-
-        // Toggle complete state when checkbox is ticked
-        const checkbox = toDoElement.querySelector(`#${toDo.title}Completed`);
-
-        checkbox.checked = toDo.isCompleted;
-
-        checkbox.addEventListener('change', (e) => {
-            e.preventDefault();
-            toDo.isCompleted = !toDo.isCompleted;
-
-            checkbox.dispatchEvent(new CustomEvent('completed-task', {
-                bubbles: true,
-                detail: {
-                    toDo: toDo,
-                }
-            }));
-        });
 
         const expandButton = toDoElement.querySelector("button[data-action=\"expand-todo\"]");
 
@@ -62,30 +54,43 @@ export default function ToDoView() {
 
         // When the edit button is clicked, make editable content and expand todo if collapsed
         editButton.addEventListener("click", (e) => {
-            const editables = toDoElement.querySelectorAll("[data-editable=\"true\"]");
+            editButton.dispatchEvent(new CustomEvent('edit-task', {
+                bubbles: true,
+                detail: {
+                    toDoElement: toDoElement,
+                    editButton: editButton,
+                }
+            }));
+        });
 
-            // If the edit button has been toggled to say "Confirm" then contents should be editable, else, confirm has been clicked
-            editButton.innerHTML = editButton.innerHTML === "Edit" ? "Confirm" : "Edit";
-            const canEdit = editButton.innerHTML === "Confirm" ? "true" : "false";
+        // Delete the task when the delete button is clicked
+        const deleteButton = toDoElement.querySelector("button[data-action=\"delete-todo\"]");
+        deleteButton.addEventListener("click", (e) => {
+            deleteButton.dispatchEvent(new CustomEvent('delete-task', {
+                bubbles: true,
+                detail: {
+                    toDoElement: toDoElement,
+                }
+            }))
+        })
 
-            editables.forEach(editable => {
-                editable.setAttribute("contenteditable", canEdit);
-            });
+        // Toggle complete state when checkbox is ticked
+        const checkbox = toDoElement.querySelector(`#${titleSlug}Completed`);
 
-            if (getCollapsedState() === "true") setCollapsedState("false");
+        checkbox.checked = toDo.isCompleted;
+        editButton.disabled = toDo.isCompleted;
 
-            // When confirmed, dispatch an event to update the project
-            if (editButton.innerHTML === "Edit") {
-                editButton.dispatchEvent(new CustomEvent("confirm-task-update", {
-                    bubbles: true,
-                    detail: {
-                        toDo: toDo,
-                        newTitle: toDoElement.querySelector("[data-info=\"todo-title\"]").innerText,
-                        newDescription: toDoElement.querySelector("[data-info=\"todo-description\"]").innerText,
-                        newDate: toDoElement.querySelector("[data-info=\"todo-date\"]").innerText,
-                    }
-                }));
-            }
+        checkbox.addEventListener('change', (e) => {
+            e.preventDefault();
+            toDo.isCompleted = !toDo.isCompleted;
+            editButton.disabled = toDo.isCompleted;
+
+            checkbox.dispatchEvent(new CustomEvent('completed-task', {
+                bubbles: true,
+                detail: {
+                    toDo: toDo,
+                }
+            }));
         });
 
         return toDoElement;

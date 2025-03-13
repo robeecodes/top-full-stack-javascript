@@ -151,15 +151,18 @@ header nav li:has(> button[aria-selected="true"]) {
     border-radius: 1em;
 }
 
-#create-project-button:disabled {
+#create-project-button:disabled,
+#create-task-button:disabled {
     background-color: lightgray;
 }
 
-#create-project-button:disabled:hover {
+#create-project-button:disabled:hover,
+#create-task-button:disabled:hover {
     background-color: lightgray;
 }
 
-#create-project-button:disabled:active {
+#create-project-button:disabled:active,
+#create-task-button:disabled:active {
     background-color: lightgray;
     transform: scale(1);
     border: none;
@@ -230,6 +233,12 @@ main #project-view {
 
 .todo-item h3 {
     max-width: 20ch;
+
+    overflow-wrap: break-word;
+}
+
+.todo-item p {
+    max-width: 50ch;
 
     overflow-wrap: break-word;
 }

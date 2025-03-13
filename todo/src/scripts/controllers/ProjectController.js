@@ -3,15 +3,17 @@ import ToDoModel from "../models/ToDoModel.js";
 import ProjectView from "../views/ProjectView.js";
 import ProjectService from "../services/ProjectService.js";
 
-const toDos = [];
-toDos.push(new ToDoModel(0, "e", "e", new Date(), "high"));
-
 export default function ProjectController() {
     const view = new ProjectView();
     const service = new ProjectService();
 
     let projects;
     let currentProject = null;
+
+    const updateStorage = () => {
+        localStorage.setItem("projects", JSON.stringify(projects));
+        localStorage.currentProject = JSON.stringify(currentProject);
+    }
 
     // Creates form to make a new project
     document.addEventListener("create-project", (e) => {
@@ -47,36 +49,50 @@ export default function ProjectController() {
         view.renderProjectList(projects, currentProject);
     });
 
+    // Create a new task
     document.addEventListener("create-new-task", (e) => {
-        console.log(`Create new task for ${currentProject.title}`);
+        view.renderNewTaskForm();
     });
 
-    document.addEventListener("completed-task", (e) => {
-        const updateProject = projects[currentProject.id];
-        updateProject.toDos[e.detail.toDo.id] = e.detail.toDo;
-
-        localStorage.setItem("projects", JSON.stringify(projects));
-    });
-
+    // Confirm new task created
     document.addEventListener("confirm-new-task", (e) => {
-        console.log(`New task created for ${currentProject.title}`);
+        currentProject = service.createTask(projects, currentProject);
+        document.getElementById('create-task-button').disabled = false;
+
+        updateStorage();
+        render();
     });
 
-    document.addEventListener("confirm-task-update", (e) => {
-        service.updateToDo(projects, currentProject, e.detail.toDo, e.detail.newTitle, e.detail.newDescription);
+    // Edit a task
+    document.addEventListener("edit-task", (e) => {
+        service.editTask(projects, currentProject, e.detail.editButton, e.detail.toDoElement);
+    });
 
-        localStorage.setItem("projects", JSON.stringify(projects));
+    // Task details have been updated
+    document.addEventListener("confirm-task-update", (e) => {
+        currentProject = service.updateToDo(projects, currentProject, e.detail.toDo, e.detail.newTitle, e.detail.newDescription);
+
+        updateStorage();
+    });
+
+    // Delete a task
+    document.addEventListener("delete-task", (e) => {
+       currentProject = service.deleteTask(projects, currentProject, e.detail.toDoElement);
+
+       updateStorage();
+       render();
+    });
+
+    // Task has been completed
+    document.addEventListener("completed-task", (e) => {
+        currentProject = service.completeTask(projects, e.detail.toDo, currentProject);
+
+        updateStorage();
     });
 
     async function loadProjects() {
         ({projects, currentProject} = await service.loadProjects());
-
-        if (projects[0].toDos.length === 0) {
-            projects[0].toDos = toDos;
-            localStorage.setItem("projects", JSON.stringify(projects));
-        }
     }
-
 
     function render() {
         view.renderTasks(currentProject);

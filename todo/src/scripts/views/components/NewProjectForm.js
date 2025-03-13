@@ -5,7 +5,7 @@ export default function NewProjectForm() {
         newProjectForm.classList.add("new-project-form");
         newProjectForm.innerHTML =
             `<label for="project-title">Title: </label><br>
-                 <input type="text" id="project-title" name="project-title"><br>`;
+                 <input type="text" name="project-title"><br>`;
 
         const confirmButton = Object.assign(document.createElement('button'), {
             innerText: "✔️",
@@ -14,7 +14,7 @@ export default function NewProjectForm() {
         // Event to create new project
         confirmButton.addEventListener("click", (e) => {
             e.preventDefault();
-            const value = newProjectForm.querySelector('#project-title').value;
+            const value = newProjectForm.querySelector('[name="project-title"]').value;
             confirmButton.dispatchEvent(new CustomEvent('confirm-new-project', {
                 bubbles: true,
                 detail: {
@@ -32,7 +32,7 @@ export default function NewProjectForm() {
 
         cancelButton.addEventListener("click", (e) => {
             e.preventDefault();
-            cancelButton.dispatchEvent(new CustomEvent('cancel-new-project', {bubbles: true}));
+            cancelButton.dispatchEvent(new CustomEvent('cancel-current-task', {bubbles: true}));
         });
 
         newProjectForm.appendChild(cancelButton);

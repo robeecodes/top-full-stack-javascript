@@ -218,6 +218,40 @@ main #project-view {
 }
 
 /* Todo Items */
+#todo-form {
+    padding: 2rem;
+}
+
+#todo-form form > div {
+    margin-bottom: 1rem;
+}
+
+#todo-form button, .todo-item button:not([data-action="expand-todo"]) {
+    background-color: deepskyblue;
+    border: none;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    border-radius: .25em;
+
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    transition: all .25s ease-in-out;
+}
+
+#todo-form button[type="button"], .todo-item button[data-action="delete-todo"] {
+    background-color: crimson;
+    color: white;
+}
+
+#todo-form button:hover, .todo-item button:hover {
+    background-color: lightskyblue;
+}
+
+#todo-form button[type="button"]:hover, .todo-item button[data-action="delete-todo"]:hover {
+    background-color: lightcoral;
+}
+
 .todo-item {
     position: relative;
 

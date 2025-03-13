@@ -3,7 +3,11 @@ import "./styles.css"
 import ProjectController from "./scripts/controllers/ProjectController.js";
 
 const projectController = new ProjectController();
-await projectController.init();
+async function initProject() {
+    await projectController.init();
+}
+
+initProject();
 
 const createProjectButton = document.querySelector("#create-project-button");
 createProjectButton.addEventListener("click", (e) => {

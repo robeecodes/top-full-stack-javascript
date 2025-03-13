@@ -1,5 +1,4 @@
 // Manages projects, interacting with ProjectService.js.
-import ToDoModel from "../models/ToDoModel.js";
 import ProjectView from "../views/ProjectView.js";
 import ProjectService from "../services/ProjectService.js";
 
@@ -35,15 +34,20 @@ export default function ProjectController() {
         view.renderProjectList(projects, currentProject);
     });
 
-    // Cancel creating new project
-    document.addEventListener("cancel-new-project", (e) => {
-        view.renderProjectList(projects, currentProject);
+    // Cancel current task, re-render
+    document.addEventListener("cancel-current-task", (e) => {
+        // Make sure new task button is available
+        document.querySelector("#create-task-button").disabled = false;
+        render();
     })
 
     // Switch project view
     document.addEventListener("change-project-view", (e) => {
         currentProject = e.detail.project;
         localStorage.setItem("currentProject", JSON.stringify(currentProject));
+
+        // Make sure new task button is available
+        document.querySelector("#create-task-button").disabled = false;
 
         view.renderTasks(currentProject);
         view.renderProjectList(projects, currentProject);
@@ -70,9 +74,10 @@ export default function ProjectController() {
 
     // Task details have been updated
     document.addEventListener("confirm-task-update", (e) => {
-        currentProject = service.updateToDo(projects, currentProject, e.detail.toDo, e.detail.newTitle, e.detail.newDescription);
+        currentProject = service.updateTask(projects, currentProject, e.detail.toDo, e.detail.newTitle, e.detail.newDescription, e.detail.newDate);
 
         updateStorage();
+        render();
     });
 
     // Delete a task

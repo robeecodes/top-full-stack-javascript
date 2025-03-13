@@ -18,8 +18,7 @@ export default function ToDoView() {
                     <div class="preview-group">
                         <h3 data-editable="true" data-info="todo-title">${toDo.title}</h3>
                         <div>
-                            <button data-action="edit-todo">Edit</button>
-                            <button data-action="delete-todo">Delete</button>
+                            <button data-action="edit-todo">Edit</button><button data-action="delete-todo">Delete</button>
                             <div class="label-group">
                                 <input type="checkbox" id="${titleSlug}Completed" name="${titleSlug}Completed" value="completed">
                                 <label for="${titleSlug}Completed">Completed?</label><br>
@@ -27,7 +26,7 @@ export default function ToDoView() {
                         </div>
                     </div>
                     <p class="collapsed-item" data-editable="true" data-info="todo-description">${toDo.description}</p>
-                    <p class="collapsed-item" data-editable="true" data-info="todo-date">Due: ${date}</p>
+                    <p class="collapsed-item" data-info="todo-date">Due: ${date}</p>
                     <button data-action="expand-todo">▽</button>
                 `;
 

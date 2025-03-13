@@ -35,14 +35,17 @@ export default function ProjectService() {
                 currentProject: currentProject
             };
         },
-        updateToDo: (projects, currentProject, toDo, newTitle, newDescription) => {
+        updateTask: (projects, currentProject, toDo, newTitle, newDescription, newDate) => {
             const projectPosition = getObjectPosition(projects, currentProject.id);
 
             const arr = projects[projectPosition].toDos;
             const toDoPosition = getObjectPosition(arr, toDo.id);
 
+            console.log(newDate);
+
             arr[toDoPosition].title = newTitle;
             arr[toDoPosition].description = newDescription;
+            arr[toDoPosition].dueDate = newDate;
 
             return projects[projectPosition];
         },
@@ -61,10 +64,10 @@ export default function ProjectService() {
 
             const taskDetails = document.querySelector("#todo-form form");
 
-            const taskTitle = taskDetails.querySelector("#title").value;
-            const taskDescription = taskDetails.querySelector("#description").value;
-            const taskDueDate = new Date(taskDetails.querySelector("#due_date").value);
-            const taskPriority = taskDetails.querySelector("#priority").value;
+            const taskTitle = taskDetails.querySelector("[name='title']").value;
+            const taskDescription = taskDetails.querySelector("[name='description']").value;
+            const taskDueDate = new Date(taskDetails.querySelector("[name='due_date']").value);
+            const taskPriority = taskDetails.querySelector("[name='priority']").value;
 
             const arr = projects[projectPosition].toDos;
             const id = arr.length > 0 ? arr[arr.length - 1].id + 1 : 0;
@@ -75,6 +78,10 @@ export default function ProjectService() {
             return projects[projectPosition];
         },
         editTask: (projects, currentProject, editButton, toDoElement) => {
+            const projectPosition = getObjectPosition(projects, currentProject.id);
+            const arr = projects[projectPosition].toDos;
+            const toDoPosition = getObjectPosition(arr, parseInt(toDoElement.getAttribute("data-id")));
+
             const editables = toDoElement.querySelectorAll("[data-editable=\"true\"]");
 
             // If the edit button has been toggled to say "Confirm" then contents should be editable, else, confirm has been clicked
@@ -86,34 +93,31 @@ export default function ProjectService() {
             });
 
             const dateElement = toDoElement.querySelector("[data-info=\"todo-date\"]");
-            const dateInput = `
+
+            dateElement.innerHTML = `
                       <div>
                         <label for="due_date">Due Date</label>
-                        <input type="date" id="due_date" name="due_date" min=${new Date().toISOString().split('T')[0]} value="${new Date(dateElement.innerText)}" required>
+                        <input type="date" name="due_date" min=${new Date().toISOString().split('T')[0]} value=${arr[toDoPosition].dueDate} required>
                       </div>
                     `;
 
-            // toDoElement.appendChild(dateInput);
+            const dateInput = toDoElement.querySelector("[data-info=\"todo-date\"] input");
 
             if (toDoElement.getAttribute("data-collapsed") === "true")
                 toDoElement.setAttribute("data-collapsed", "false");
 
-            const projectPosition = getObjectPosition(projects, currentProject.id);
-            const arr = projects[projectPosition].toDos;
-            const toDoPosition = getObjectPosition(arr, parseInt(toDoElement.getAttribute("data-id")));
-
             // When confirmed, dispatch an event to update the project
-            if (editButton.innerHTML === "Edit") {
+            editButton.addEventListener("click", (e) => {
                 editButton.dispatchEvent(new CustomEvent("confirm-task-update", {
                     bubbles: true,
                     detail: {
                         toDo: arr[toDoPosition],
                         newTitle: toDoElement.querySelector("[data-info=\"todo-title\"]").innerText,
                         newDescription: toDoElement.querySelector("[data-info=\"todo-description\"]").innerText,
-                        newDate: toDoElement.querySelector("[data-info=\"todo-date\"]").innerText,
+                        newDate: dateInput.value,
                     }
                 }));
-            }
+            });
         },
         deleteTask: (projects, currentProject, toDoElement) => {
             const projectPosition = getObjectPosition(projects, currentProject.id);

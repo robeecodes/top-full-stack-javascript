@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "webpack serve",
     "build": "webpack --mode production",
-    "deploy": "npm run build && git add . && git commit -m 'Deploy updates' && git push origin main"
+    "deploy": "npm run build && git add . && git commit -m \"Deploy updates\" && git push origin main"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",

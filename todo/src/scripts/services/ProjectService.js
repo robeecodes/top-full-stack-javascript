@@ -41,8 +41,6 @@ export default function ProjectService() {
             const arr = projects[projectPosition].toDos;
             const toDoPosition = getObjectPosition(arr, toDo.id);
 
-            console.log(newDate);
-
             arr[toDoPosition].title = newTitle;
             arr[toDoPosition].description = newDescription;
             arr[toDoPosition].dueDate = newDate;
@@ -106,18 +104,22 @@ export default function ProjectService() {
             if (toDoElement.getAttribute("data-collapsed") === "true")
                 toDoElement.setAttribute("data-collapsed", "false");
 
-            // When confirmed, dispatch an event to update the project
-            editButton.addEventListener("click", (e) => {
+            const updateEvent = () => {
                 editButton.dispatchEvent(new CustomEvent("confirm-task-update", {
-                    bubbles: true,
-                    detail: {
-                        toDo: arr[toDoPosition],
-                        newTitle: toDoElement.querySelector("[data-info=\"todo-title\"]").innerText,
-                        newDescription: toDoElement.querySelector("[data-info=\"todo-description\"]").innerText,
-                        newDate: dateInput.value,
+                        bubbles: true,
+                        detail: {
+                            toDo: arr[toDoPosition],
+                            newTitle: toDoElement.querySelector("[data-info=\"todo-title\"]").innerText,
+                            newDescription: toDoElement.querySelector("[data-info=\"todo-description\"]").innerText,
+                            newDate: dateInput.value,
+                        }
                     }
-                }));
-            });
+                ));
+                editButton.removeEventListener("click", updateEvent);
+            };
+
+            // When confirmed, dispatch an event to update the project
+            editButton.addEventListener("click", updateEvent);
         },
         deleteTask: (projects, currentProject, toDoElement) => {
             const projectPosition = getObjectPosition(projects, currentProject.id);

@@ -3,6 +3,7 @@ import "./styles.css"
 import ProjectController from "./scripts/controllers/ProjectController.js";
 
 const projectController = new ProjectController();
+
 async function initProject() {
     await projectController.init();
 }

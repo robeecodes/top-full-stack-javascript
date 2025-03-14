@@ -5,7 +5,10 @@
     "deploy": "npm run build && git add . && git commit -m \"Deploy updates\" && git push origin main"
   },
   "devDependencies": {
+    "@eslint/js": "^9.22.0",
     "css-loader": "^7.1.2",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",

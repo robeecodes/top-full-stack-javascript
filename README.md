@@ -2,10 +2,11 @@
 
 This repository contains all the projects I’ve built as part of The Odin Project’s Full Stack JavaScript Path. Below are some of the projects that you can explore.
 
-
 ## Projects
 
-### 1. **[Sign-Up Form](https://robeecodes.github.io/top-full-stack-javascript/sign-up-form/)**
+### 1. **Sign-Up Form**
+
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/sign-up-form/)**
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/sign-up-form)  
 A simple, responsive form where users can sign up with their details. Includes form validation and interactive elements.
  
@@ -13,7 +14,9 @@ A simple, responsive form where users can sign up with their details. Includes f
 
 ---
 
-### 2. **[Admin Dashboard](https://robeecodes.github.io/top-full-stack-javascript/admin-dashboard/)**
+### 2. **Admin Dashboard**
+
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/admin-dashboard/)**
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/admin-dashboard)  
 An admin dashboard built to practice my CSS Grid skills.
 
@@ -21,7 +24,9 @@ An admin dashboard built to practice my CSS Grid skills.
 
 ---
 
-### 3. **[Library](https://robeecodes.github.io/top-full-stack-javascript/library/)**
+### 3. **Library**
+
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/library/)**
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/library)  
 A simple library app where users can add, remove, and mark books as read. It uses JavaScript for DOM manipulation.
 
@@ -29,7 +34,9 @@ A simple library app where users can add, remove, and mark books as read. It use
 
 ---
 
-### 4. **[Tic Tac Toe](https://robeecodes.github.io/top-full-stack-javascript/tic-tac-toe/)**
+### 4. **Tic Tac Toe**
+
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/tic-tac-toe/)**
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/tic-tac-toe)  
 A classic Tic Tac Toe game implemented using JavaScript. The game allows two players to compete in a browser.
   
@@ -37,7 +44,9 @@ A classic Tic Tac Toe game implemented using JavaScript. The game allows two pla
 
 ---
 
-### 5. **[Restaurant](https://robeecodes.github.io/top-full-stack-javascript/restaurant/dist/)**
+### 5. **Restaurant**
+
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/restaurant/dist/)**
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/restaurant)  
 A restaurant website showcasing different sections in a single-page app. Built to practice DOM manipulation in JavaScript.
 
@@ -45,7 +54,9 @@ A restaurant website showcasing different sections in a single-page app. Built t
 
 ---
 
-### 6. **[To Do App](https://robeecodes.github.io/top-full-stack-javascript/todo/dist/)**
+### 6. **To Do App**
+
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/todo/dist/)**
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/todo)  
 A to do app built to practice MVC design pattern, DOM manipulation and localstorage access.
 
@@ -53,9 +64,11 @@ A to do app built to practice MVC design pattern, DOM manipulation and localstor
 
 ---
 
-### 6.5. **[Custom Dropdown and Carousel](https://robeecodes.github.io/top-full-stack-javascript/dropdown-and-carousel/src/)**
-[View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/dropdown-and-carousel)  
-Bonus demonstration of creating custom web components using javascript.
+### 6.5. **Custom Dropdown and Carousel**
+
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/dropdown-and-carousel/src/)**
+[View Code on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/dropdown-and-carousel)  
+Bonus demonstration of creating custom elements with [JavaScript Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). Note the usage of [WAI-ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/carousel)
 
 ![Custom Dropdown and Carousel Screenshot](project-screenshots/dropdown-and-carousel.png)
 

@@ -49,7 +49,15 @@ A restaurant website showcasing different sections in a single-page app. Built t
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/todo)  
 A to do app built to practice MVC design pattern, DOM manipulation and localstorage access.
 
-![Restaurant Screenshot](project-screenshots/todo.png)
+![To Do App Screenshot](project-screenshots/todo.png)
+
+---
+
+### 6.5. **[Custom Dropdown and Carousel](https://robeecodes.github.io/top-full-stack-javascript/dropdown-and-carousel/src/)**
+[View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/dropdown-and-carousel)  
+Bonus demonstration of creating custom web components using javascript.
+
+![Custom Dropdown and Carousel Screenshot](project-screenshots/dropdown-and-carousel.png)
 
 
 ## Tech Stack ⚙️

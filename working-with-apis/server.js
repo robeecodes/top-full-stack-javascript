@@ -9,7 +9,7 @@ app.use(express.static('public'));
 
 app.get('/gif', async (req, res) => {
     const apiKey = process.env.API_KEY;
-    const query = 'cat';
+    const query = req.query?.query?.trim() || 'cat';
 
     const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${query}`);
     const data = await response.json();

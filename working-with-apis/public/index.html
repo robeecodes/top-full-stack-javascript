@@ -5,17 +5,62 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
     <title>Working With APIs</title>
 </head>
 <body>
-<h1>Here's a Cat</h1>
-<img id="gif" src="#" alt="Cat gif">
+<div class="container">
+    <h1>Here's a Cat!</h1>
+    <img id="gif" src="assets/img/alexander-london-mJaD10XeD7w-unsplash.jpg" alt="Cat gif">
+    <button>Click me for more cats!</button>
+    <form>
+        <label for="query">Search for a gif</label>
+        <input type="text" name="query" id="query" placeholder="Type a gif keyword">
+        <input type="submit" value="Search">
+    </form>
+</div>
 <script>
-    fetch('/gif')
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('gif').src = data.imageUrl;
-        });
+    const button = document.querySelector('button');
+    const query = document.querySelector('#query');
+    const searchForm = document.querySelector('form');
+    const heading = document.querySelector('h1');
+
+    const vowels = ['A', 'E', 'I', 'O', 'O'];
+
+    searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (!query.value) {
+            query.focus();
+            query.setCustomValidity('Please enter a search term.');
+            query.reportValidity();
+            return;
+        }
+
+        setGif(`/gif?query=${encodeURIComponent(query.value)}`);
+
+        const gifName = query.value.replace(
+                /\w\S*/g,
+                text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+            );
+
+        heading.innerText = `Here's ${vowels.includes(gifName.charAt(0)) ? "an" : "a"} ${gifName} gif!`;
+    });
+
+    button.addEventListener('click', () => {
+        setGif('/gif');
+        heading.innerText = `Here's a Cat!`;
+    });
+
+    setGif('/gif');
+
+    async function setGif(path) {
+        fetch(path)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('gif').src = data.imageUrl;
+            });
+    }
 </script>
 </body>
 </html>

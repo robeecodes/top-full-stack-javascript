@@ -9,19 +9,45 @@ function Book(title, author, read) {
 // Get the new book form and add a new book to the library
 const newBookForm = document.getElementById("newBookForm");
 const alert = new bootstrap.Collapse("#invalidEntry", {
-    toggle: false
+    toggle: false,
+
 });
+const alertText = document.getElementById("invalidEntry");
 
 newBookForm.addEventListener("submit", addBookToLibrary);
 
 function addBookToLibrary(e) {
     e.preventDefault();
 
-    const title = document.getElementById("bookTitle").value;
-    const author = document.getElementById("bookAuthor").value;
+    const titleEl = document.getElementById("bookTitle");
+    const title = titleEl.value.trim();
+
+    const authorEl = document.getElementById("bookAuthor");
+    const author = authorEl.value.trim();
     const read = document.getElementById("checkReadStatus").checked;
 
+    if (!title || !author) {
+        console.log(title, author, read);
+        alertText.innerText = "Please fill every field.";
+        alert.show();
+
+        if (!title) {
+            titleEl.classList.add("is-invalid");
+        }
+
+        if (!author) {
+            authorEl.classList.add("is-invalid");
+        }
+
+        setTimeout(() => {
+            alert.hide();
+        }, 3000)
+
+        return;
+    }
+
     if (myLibrary.some(book => book.title === title && book.author === author)) {
+        alertText.innerText = "This Book Already Exists!";
         alert.show();
 
         setTimeout(() => {

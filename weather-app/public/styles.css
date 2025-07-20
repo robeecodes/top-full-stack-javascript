@@ -1,0 +1,233 @@
+@import url(https://fonts.bunny.net/css?family=zain:300,400,700);
+
+:root {
+    --fs-sm: clamp(0.9rem, 0.24vi + 0.84rem, 1.03rem);
+    --fs-base: clamp(1.13rem, 0.45vi + 1.01rem, 1.38rem);
+    --fs-md: clamp(1.41rem, 0.78vi + 1.21rem, 1.83rem);
+    --fs-lg: clamp(1.76rem, 1.25vi + 1.45rem, 2.44rem);
+    --fs-xl: clamp(2.2rem, 1.93vi + 1.72rem, 3.26rem);
+    --fs-xxl: clamp(2.75rem, 2.9vi + 2.02rem, 4.34rem);
+    --fs-xxxl: clamp(3.43rem, 4.28vi + 2.36rem, 5.79rem);
+    --fs-xxxxl: clamp(4.29rem, 6.22vi + 2.74rem, 7.71rem);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Zain', Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+    font-weight: 300;
+    font-size: var(--fs-base);
+    line-height: 1;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#loader {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    position: relative;
+}
+
+#loader::after,
+#loader::before {
+    content: '';
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: animloader 2s linear infinite;
+}
+
+#loader::after {
+    animation-delay: 1s;
+}
+
+@keyframes animloader {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+form input[type="text"] {
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    color: gray;
+    outline: none;
+
+    transition: all 0.2s ease-in-out;
+}
+
+form input[type="text"]:focus {
+    border-bottom: 1px solid black;
+    color: black;
+}
+
+form button {
+    display: flex;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+form button:hover {
+    background-color: lightgray;
+}
+
+#weather-data {
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-size: cover;
+    background-position: center;
+}
+
+#weather-data .card {
+    min-width: 15rem;
+    max-width: 38rem;
+    max-height: 80vh;
+    aspect-ratio: 3/4;
+
+    border-radius: 0.5rem;
+
+    background: linear-gradient(to bottom, rgba(255, 211, 200, 0.7) 0%,rgba(255, 224, 219, 0.7) 100%);
+    box-shadow: 0 0 2rem 2rem rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(.2rem);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+
+    position: relative;
+
+    gap: 1rem;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+}
+
+#weather-data .card:hover {
+    transform: scale(1.05);
+}
+
+#weather-data .card:active {
+    transform: scale(.95);
+}
+
+#weather-data .card button {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+#weather-data .card .weather-icon,
+#weather-data .card .weather-location {
+    display: flex;
+    width: 100%;
+    gap: .5em;
+}
+
+#weather-data .card .weather-temperatures {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#weather-data .card .weather-temperatures > p {
+    font-size: var(--fs-xxxxl);
+    font-weight: 400;
+}
+
+#weather-data .card .weather-temperatures > div {
+    display: flex;
+    justify-content: center;
+    gap: 2.25rem;
+}
+
+#weather-data #attribution {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: var(--fs-sm);
+    color: white;
+    font-weight: 400;
+}
+
+#weather-data #attribution a {
+    font-size: var(--fs-sm);
+    color: white;
+    font-weight: 400;
+}
+
+#weather-data #gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    mix-blend-mode: multiply;
+
+    background: linear-gradient(to top, rgb(48, 48, 48) 0%,rgba(0, 0, 0, 0) 100%);
+}

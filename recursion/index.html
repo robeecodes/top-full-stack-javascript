@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Practicing Recursion</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+</head>
+<body>
+<h1>Practicing Recursion</h1>
+
+<section>
+    <h2>Fibonacci (Iterative)</h2>
+    <form id="fibIterForm">
+        <label for="fibIterInput">Number of terms (n):</label>
+        <input type="number" id="fibIterInput" min="1" value="8" required />
+        <button type="submit">Generate</button>
+    </form>
+    <pre id="fibIterOutput"></pre>
+    <div class="benchmark" id="fibIterTime"></div>
+</section>
+
+<section>
+    <h2>Fibonacci (Recursive)</h2>
+    <form id="fibRecForm">
+        <label for="fibRecInput">Number of terms (n):</label>
+        <input type="number" id="fibRecInput" min="1" value="8" required />
+        <button type="submit">Generate</button>
+    </form>
+    <pre id="fibRecOutput"></pre>
+    <div class="benchmark" id="fibRecTime"></div>
+</section>
+
+<section>
+    <h2>Merge Sort</h2>
+    <form id="mergeSortForm">
+        <label for="mergeSortInput">Enter numbers separated by commas:</label>
+        <input
+                type="text"
+                id="mergeSortInput"
+                placeholder="e.g. 3, 2, 1, 13, 8, 5, 0, 1"
+                value="3, 2, 1, 13, 8, 5, 0, 1"
+                required
+        />
+        <button type="submit">Sort</button>
+    </form>
+    <pre id="mergeSortOutput"></pre>
+    <div class="benchmark" id="mergeSortTime"></div>
+</section>
+</body>
+</html>

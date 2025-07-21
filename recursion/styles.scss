@@ -1,0 +1,110 @@
+// Catppuccin Mocha green palette variables
+$background: #1e1e2e;
+$surface0: #313244;
+$green: #9ece6a;
+$green_dark: #7fbf4e;
+$text-color: #cdd6f4;
+$error-color: #f38ba8;
+$box-shadow: 0 0 0 rgba(156, 206, 106, 0);
+$input-border: #585b70;
+$pre-bg: #313244;
+
+body {
+  font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
+  max-width: 37.5rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: $background;
+  color: $text-color;
+
+  h1, h2 {
+    text-align: center;
+    color: $green;
+  }
+
+  section {
+    background: $surface0;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.375rem;
+    box-shadow: none;
+  }
+
+  label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: 600;
+  }
+
+  input[type="number"],
+  input[type="text"] {
+    width: 100%;
+    padding: 0.25rem;
+    font-size: 1rem;
+    border: 0.0625rem solid $input-border;
+    border-radius: 0.25rem;
+    background: $background;
+    color: $text-color;
+
+    &:focus {
+      outline: none;
+      border: 0.125rem solid $green;
+    }
+  }
+
+  button {
+    margin-top: 1rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background: $green;
+    color: $background;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: $green_dark;
+    }
+  }
+
+  pre {
+    background: $pre-bg;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 8rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-top: 0.5rem;
+    min-height: 1.5em;
+    scrollbar-width: thin;
+    scrollbar-color: $green $surface0;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: $surface0;
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $green;
+      border-radius: 4px;
+    }
+  }
+
+  .benchmark {
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    font-style: italic;
+    color: #888;
+
+    &.error {
+      color: $error-color;
+      font-weight: 700;
+    }
+  }
+}

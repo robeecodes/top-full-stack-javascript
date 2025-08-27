@@ -1,0 +1,43 @@
+#gameplay-container {
+  #your-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+
+    @media (max-width: 62.5em) {
+      position: initial;
+      display: none;
+
+      h3 {
+        display: none;
+      }
+
+    }
+  }
+
+  #popup-text {
+    visibility: hidden;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.show {
+      visibility: visible;
+    }
+  }
+}

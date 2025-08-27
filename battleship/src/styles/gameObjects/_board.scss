@@ -1,0 +1,109 @@
+@use '../base/colours' as *;
+
+[id$="board"] {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 1px;
+
+  aspect-ratio: 1 / 1;
+
+  border: 1px solid $colour-accent;
+  border-radius: 1rem;
+
+  background-color: $colour-accent;
+  box-shadow: black 0px 20px 30px -10px;
+
+  overflow: hidden;
+
+  button, div {
+    background-color: $colour-bg;
+    border: none;
+
+    transition: background-color 0.3s ease-in-out;
+
+    &.hit {
+      background-color: grey;
+      cursor: initial;
+      &.ship {
+        background-color: red;
+      }
+    }
+  }
+
+  button:not([disabled]), {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+
+    @mixin button-overlay {
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      top: -25%;
+      left: -25%;
+      content: "";
+      background-color: $colour-accent;
+      border-radius: 100%;
+      opacity: 0;
+      transform-origin: center;
+      transform: scale(0);
+      transition: all 0.75s ease-in-out;
+    }
+
+    &::before {
+      @include button-overlay;
+      transition-delay: 0.25s;
+    }
+
+    &::after {
+      @include button-overlay;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        transform: scale(1);
+      }
+
+      &::before {
+        opacity: 0.8;
+      }
+
+      &::after {
+        opacity: 0.2;
+      }
+    }
+
+    &:active {
+      &::before,
+      &::after {
+        transform: scale(0);
+        transition-delay: 0s;
+        transition: all 0.15s ease-in-out;
+      }
+
+      &::before {
+        opacity: 0;
+      }
+
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+#enemy-board {
+  width: max(20rem, 60vw);
+  max-width: 60vh;
+}
+
+#your-board {
+  width: 15vw;
+  height: auto;
+
+  .ship:not(.hit) {
+    background-color: darkslateblue;
+  }
+}

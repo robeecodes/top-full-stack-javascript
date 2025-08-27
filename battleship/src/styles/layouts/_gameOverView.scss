@@ -1,0 +1,23 @@
+@use '../base/colours' as *;
+@use '../base/typography' as *;
+
+#gameover-container {
+  button {
+    padding: 1rem 2rem;
+    background-color: $colour-accent;
+
+    border: none;
+    border-radius: 1rem;
+
+    font-size: $fs-sm;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: lightgreen;
+      transform: scale(1.05);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import url(https://fonts.bunny.net/css?family=actor:400|arbutus:400);
+
+$fs-sm: clamp(0.9rem, 0.24vi + 0.84rem, 1.03rem);
+$fs-base: clamp(1.13rem, 0.45vi + 1.01rem, 1.38rem);
+$fs-md: clamp(1.41rem, 0.78vi + 1.21rem, 1.83rem);
+$fs-lg: clamp(1.76rem, 1.25vi + 1.45rem, 2.44rem);
+$fs-xl: clamp(2.2rem, 1.93vi + 1.72rem, 3.26rem);
+$fs-xxl: clamp(2.75rem, 2.9vi + 2.02rem, 4.34rem);
+$fs-xxxl: clamp(3.43rem, 4.28vi + 2.36rem, 5.79rem);
+
+h1, #popup-text {
+  font-size: $fs-xxxl;
+  font-family: 'Arbutus', display, sans-serif;
+
+  @media (max-width: (calc(600 / 16)) * 1em) {
+    font-size: $fs-xxl;
+  }
+}
+
+h2, h3 {
+  font-family: 'Actor', sans-serif;
+}
+
+h2 {
+  font-size: $fs-md;
+}
+
+h3 {
+  font-size: $fs-base;
+}

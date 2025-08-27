@@ -10,7 +10,7 @@ This repository contains all the projects I’ve built as part of The Odin Proje
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/sign-up-form)  
 A simple, responsive form where users can sign up with their details. Includes form validation and interactive elements.
 
-![Sign-Up Form Screenshot](project-screenshots/sign-up-form.png)
+![Sign-Up Form Screenshot](project-screenshots/sign-up-form.avif)
 
 ---
 
@@ -20,7 +20,7 @@ A simple, responsive form where users can sign up with their details. Includes f
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/admin-dashboard)  
 An admin dashboard built to practice my CSS Grid skills.
 
-![Admin Dashboard Screenshot](project-screenshots/admin-dashboard.png)
+![Admin Dashboard Screenshot](project-screenshots/admin-dashboard.avif)
 
 ---
 
@@ -30,7 +30,7 @@ An admin dashboard built to practice my CSS Grid skills.
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/library)  
 A simple library app where users can add, remove, and mark books as read. It uses JavaScript for DOM manipulation.
 
-![Library Screenshot](project-screenshots/library.png)
+![Library Screenshot](project-screenshots/library.avif)
 
 ---
 
@@ -40,7 +40,7 @@ A simple library app where users can add, remove, and mark books as read. It use
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/tic-tac-toe)  
 A classic Tic Tac Toe game implemented using JavaScript. The game allows two players to compete in a browser.
   
-![Tic Tac Toe Screenshot](project-screenshots/tic-tac-toe.png)
+![Tic Tac Toe Screenshot](project-screenshots/tic-tac-toe.avif)
 
 ---
 
@@ -50,7 +50,7 @@ A classic Tic Tac Toe game implemented using JavaScript. The game allows two pla
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/restaurant)  
 A restaurant website showcasing different sections in a single-page app. Built to practice DOM manipulation in JavaScript.
 
-![Restaurant Screenshot](project-screenshots/restaurant.png)
+![Restaurant Screenshot](project-screenshots/restaurant.avif)
 
 ---
 
@@ -60,7 +60,7 @@ A restaurant website showcasing different sections in a single-page app. Built t
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/todo)  
 A to do app built to practice MVC design pattern, DOM manipulation and localstorage access.
 
-![To Do App Screenshot](project-screenshots/todo.png)
+![To Do App Screenshot](project-screenshots/todo.avif)
 
 ---
 
@@ -70,15 +70,29 @@ A to do app built to practice MVC design pattern, DOM manipulation and localstor
 [View Code on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/dropdown-and-carousel)  
 Bonus demonstration of creating custom elements with [JavaScript Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). Note the usage of [WAI-ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/carousel)
 
-![Custom Dropdown and Carousel Screenshot](project-screenshots/dropdown-and-carousel.png)
+![Custom Dropdown and Carousel Screenshot](project-screenshots/dropdown-and-carousel.avif)
+
+## 7. Weather App
+**[Live Preview](https://robeecodes-top-weather-app.onrender.com/)** | **[View Code on Github](https://github.com/robeecodes/top-full-stack-javascript/tree/main/weather-app)**  
+Basic interface to view the current weather at any given location using the [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api/) and [Unsplash Images API](https://unsplash.com/developers) to retrieve background images based on the weather.
+
+![Weather App Screenshot](project-screenshots/weather-app.avif)
+
+## 8. Battleship
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/battleship/dist/)** | **[View Code on Github](https://github.com/robeecodes/top-full-stack-javascript/tree/main/battleship)**  
+The classic game of Battleship recreated for the web!
+
+![Battleship Project Screenshot](project-screenshots/battleship.avif)
 
 ## Tech Stack ⚙️
 
 - **HTML5** - Structure of the web pages
 - **CSS3** - Styling and responsiveness
 - **JavaScript** - Core functionality and logic
+- **Express.js** - Backend services
 - **Git & GitHub** - Version control and project management
 - **GitHub Pages** - Hosting the live demo of each project
+- **Render** - Hosting live demos with a backend
 
 ## Getting Started
 

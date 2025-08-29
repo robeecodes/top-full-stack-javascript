@@ -1,0 +1,21 @@
+{
+  "name": "robee-top-home-page",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --config webpack.dev.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "license-webpack-plugin": "^4.0.2",
+    "sass": "^1.91.0",
+    "webpack": "^5.101.3"
+  }
+}

@@ -72,17 +72,29 @@ Bonus demonstration of creating custom elements with [JavaScript Web Components]
 
 ![Custom Dropdown and Carousel Screenshot](project-screenshots/dropdown-and-carousel.avif)
 
+---
+
 ## 7. Weather App
 **[Live Preview](https://robeecodes-top-weather-app.onrender.com/)** | **[View Code on Github](https://github.com/robeecodes/top-full-stack-javascript/tree/main/weather-app)**  
 Basic interface to view the current weather at any given location using the [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api/) and [Unsplash Images API](https://unsplash.com/developers) to retrieve background images based on the weather.
 
 ![Weather App Screenshot](project-screenshots/weather-app.avif)
 
+---
+
 ## 8. Battleship
 **[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/battleship/dist/)** | **[View Code on Github](https://github.com/robeecodes/top-full-stack-javascript/tree/main/battleship)**  
 The classic game of Battleship recreated for the web!
 
 ![Battleship Project Screenshot](project-screenshots/battleship.avif)
+
+---
+
+## 9. Homepage
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/homepage/dist/)** | **[View Code on Github](https://github.com/robeecodes/top-full-stack-javascript/tree/main/homepage)**  
+Responsive homepage project.
+
+![Battleship Project Screenshot](project-screenshots/homepage.avif)
 
 ## Tech Stack ⚙️
 

@@ -2,16 +2,12 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '',
         filename: 'bundle.js'
-    },
-    devtool: "eval-source-map",
-    devServer: {
-        watchFiles: ["./src/index.html", "./src/styles/*.scss", "./src/scripts/*.js"],
     },
     module: {
         rules: [
@@ -27,14 +23,20 @@ module.exports = {
             },
             {
                 test: /\.(sa|sc|c)ss$/,
+                // Set loaders to transform files.
                 use: [
                     {
+                        // After all CSS loaders, we use a plugin to do its work.
+                        // It gets all transformed CSS and extracts it into separate
+                        // single bundled file
                         loader: MiniCssExtractPlugin.loader
                     },
                     {
+                        // This loader resolves url() and @imports inside CSS
                         loader: "css-loader",
                     },
                     {
+                        // Apply postCSS fixes like autoprefixer and minifying
                         loader: "postcss-loader"
                     },
                     {
@@ -49,6 +51,7 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|svg)$/,
                 use: [
                     {
+                        // Using file-loader for these files
                         loader: "file-loader",
                         options: {
                             outputPath: 'images'

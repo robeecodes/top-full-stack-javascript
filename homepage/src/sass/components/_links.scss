@@ -1,0 +1,20 @@
+@use '../base/colour' as *;
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+  gap: .5em;
+
+  a {
+    color: $primary-text;
+    transition: color .25s ease-in-out;
+
+    &:visited {
+      color: $primary-text;
+    }
+
+    &:hover {
+      color: $primary-colour;
+    }
+  }
+}

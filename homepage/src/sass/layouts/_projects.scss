@@ -1,0 +1,14 @@
+#projects {
+  h2 {
+    margin-bottom: 1em;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max(30%, 18rem), 1fr));
+    gap: 2em;
+
+    .card {
+      margin-bottom: 2em;
+    }
+  }
+}

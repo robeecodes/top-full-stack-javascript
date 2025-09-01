@@ -1,0 +1,26 @@
+@use "../base/colour" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 0 1em 0.25em rgba(0, 0, 0, 0.19);
+
+  background-color: $secondary-colour;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+  }
+
+  > div {
+    padding: 1em;
+    min-height: 12rem;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

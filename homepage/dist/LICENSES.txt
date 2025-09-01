@@ -1,0 +1,143 @@
+== @babel/core@7.28.3: == 
+Licenses: MIT
+Repository: https://github.com/babel/babel
+Publisher: The Babel Team
+URL: https://babel.dev/team
+
+== @babel/preset-env@7.28.3: == 
+Licenses: MIT
+Repository: https://github.com/babel/babel
+Publisher: The Babel Team
+URL: https://babel.dev/team
+
+== @tabler/icons@3.34.1: == 
+Licenses: MIT
+Repository: https://github.com/tabler/tabler-icons
+Publisher: codecalm
+URL: Not Provided
+
+== autoprefixer@10.4.21: == 
+Licenses: MIT
+Repository: https://github.com/postcss/autoprefixer
+Publisher: Andrey Sitnik
+URL: Not Provided
+
+== babel-loader@10.0.0: == 
+Licenses: MIT
+Repository: https://github.com/babel/babel-loader
+Publisher: Luis Couto
+URL: Not Provided
+
+== css-loader@7.1.2: == 
+Licenses: MIT
+Repository: https://github.com/webpack-contrib/css-loader
+Publisher: Tobias Koppers @sokra
+URL: Not Provided
+
+== cssnano-preset-default@7.0.9: == 
+Licenses: MIT
+Repository: https://github.com/cssnano/cssnano
+Publisher: Ben Briggs
+URL: http://beneb.info
+
+== cssnano-utils@5.0.1: == 
+Licenses: MIT
+Repository: https://github.com/cssnano/cssnano
+Publisher: Not Provided
+URL: Not Provided
+
+== cssnano@7.1.1: == 
+Licenses: MIT
+Repository: https://github.com/cssnano/cssnano
+Publisher: Ben Briggs
+URL: http://beneb.info
+
+== file-loader@6.2.0: == 
+Licenses: MIT
+Repository: https://github.com/webpack-contrib/file-loader
+Publisher: Tobias Koppers @sokra
+URL: Not Provided
+
+== html-loader@5.1.0: == 
+Licenses: MIT
+Repository: https://github.com/webpack-contrib/html-loader
+Publisher: Tobias Koppers @sokra
+URL: Not Provided
+
+== html-webpack-plugin@5.6.4: == 
+Licenses: MIT
+Repository: https://github.com/jantimon/html-webpack-plugin
+Publisher: Jan Nicklas
+URL: https://github.com/jantimon
+
+== license-checker@25.0.1: == 
+Licenses: BSD-3-Clause
+Repository: https://github.com/davglass/license-checker
+Publisher: Dav Glass
+URL: Not Provided
+
+== mini-css-extract-plugin@2.9.4: == 
+Licenses: MIT
+Repository: https://github.com/webpack-contrib/mini-css-extract-plugin
+Publisher: Tobias Koppers @sokra
+URL: Not Provided
+
+== postcss-loader@8.1.1: == 
+Licenses: MIT
+Repository: https://github.com/webpack-contrib/postcss-loader
+Publisher: Andrey Sitnik
+URL: Not Provided
+
+== sass-loader@16.0.5: == 
+Licenses: MIT
+Repository: https://github.com/webpack-contrib/sass-loader
+Publisher: J. Tangelder
+URL: Not Provided
+
+== sass@1.91.0: == 
+Licenses: MIT
+Repository: https://github.com/sass/dart-sass
+Publisher: Natalie Weizenbaum
+URL: https://github.com/nex3
+
+== scss-reset@1.4.6: == 
+Licenses: MIT
+Repository: https://github.com/frontend-layers/scss-reset
+Publisher: Andrey Matin
+URL: Not Provided
+
+== webpack-cli@6.0.1: == 
+Licenses: MIT
+Repository: https://github.com/webpack/webpack-cli
+Publisher: Not Provided
+URL: Not Provided
+
+== webpack-dev-middleware@7.4.2: == 
+Licenses: MIT
+Repository: https://github.com/webpack/webpack-dev-middleware
+Publisher: Tobias Koppers @sokra
+URL: Not Provided
+
+== webpack-dev-server@5.2.2: == 
+Licenses: MIT
+Repository: https://github.com/webpack/webpack-dev-server
+Publisher: Tobias Koppers @sokra
+URL: Not Provided
+
+== webpack-merge@6.0.1: == 
+Licenses: MIT
+Repository: https://github.com/survivejs/webpack-merge
+Publisher: Juho Vepsalainen
+URL: Not Provided
+
+== webpack-sources@3.3.3: == 
+Licenses: MIT
+Repository: https://github.com/webpack/webpack-sources
+Publisher: Tobias Koppers @sokra
+URL: Not Provided
+
+== webpack@5.101.3: == 
+Licenses: MIT
+Repository: https://github.com/webpack/webpack
+Publisher: Tobias Koppers @sokra
+URL: Not Provided

@@ -1,5 +1,6 @@
 import GAME_STATE from "../gameEnums/gameState";
 import _gameplayContainer from "./layouts/_gameplayContainer";
+import CPU_Player from "../gameObjects/CPU_Player";
 
 export const GameplayView = (player1, player2) => {
     document.body.innerHTML = '';
@@ -90,7 +91,7 @@ export const GameplayView = (player1, player2) => {
             this.init(gameState);
 
             const currentPlayer = gameState === GAME_STATE.PLAYER1_TURN ? player1 : player2;
-            const isCPUPlayer = currentPlayer.constructor.name === "CPU_Player";
+            const isCPUPlayer = currentPlayer instanceof CPU_Player;
 
             if (isCPUPlayer) {
                 document.querySelector('#your-status').style.display = 'none';

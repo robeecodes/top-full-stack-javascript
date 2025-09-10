@@ -71,7 +71,7 @@ export const GameplayService = (deps) => {
         const currentEnemy = gameState === GAME_STATE.PLAYER1_TURN ? p2board : p1board;
         const currentPlayer = gameState === GAME_STATE.PLAYER1_TURN ? p1 : p2;
 
-        if (currentPlayer.constructor.name === "CPU_Player") {
+        if (currentPlayer instanceof CPU_Player) {
             enemyBoard = document.querySelector("#enemy-board");
             enemyBoard.style.pointerEvents = 'none';
             setTimeout(() => {

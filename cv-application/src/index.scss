@@ -1,0 +1,71 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  font-family: Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif;
+  font-weight: normal;
+}
+
+h1, h2, h3, p, label {
+  line-height: calc(1ex / 0.32);
+}
+
+h1, h2, h3, p {
+  margin-bottom: 1ex;
+}
+
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  background-color: transparent;
+  border-radius: 0.2rem;
+  border: 1px solid light-dark(#393939, #ababab);
+  padding: 0.2rem 0.5rem;
+  margin: 1ex 0;
+
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    &::after {
+      transform: translate(-50%, -50%) scaleX(1);
+    }
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    background-color: rgba(251, 247, 25, 0.56);
+    width: 110%;
+    height: 120%;
+    border-radius: 0.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-in-out;
+    z-index: -1;
+  }
+}
+
+
+@supports (font-size-adjust: 1) {
+  html {
+    font-size-adjust: 0.5;
+  }
+}

@@ -1,0 +1,44 @@
+#root {
+  header {
+    padding: 1rem;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+  main {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+
+    #inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 3;
+    }
+
+    #CV {
+      height: min-content;
+      flex: 5;
+    }
+  }
+}
+
+@media print {
+  #root {
+    header {
+      display: none;
+    }
+
+    main #inputs {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 57em) {
+  main {
+    flex-direction: column;
+  }
+}

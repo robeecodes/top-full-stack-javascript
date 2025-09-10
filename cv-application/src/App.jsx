@@ -1,9 +1,9 @@
 import './App.scss'
-import GeneralInformation from "./components/GeneralInformation.jsx";
+import GeneralInformation from "./components/GeneralInformation";
 import {useState} from "react";
-import EducationalExperience from "./components/EducationalExperience.jsx";
-import PracticalExperience from "./components/PracticalExperience.jsx";
-import CV from "./components/CV.jsx";
+import EducationalExperience from "./components/EducationalExperience";
+import PracticalExperience from "./components/PracticalExperience";
+import CV from "./components/CV";
 
 function App() {
     const [generalDetails, setGeneralDetails] = useState({});

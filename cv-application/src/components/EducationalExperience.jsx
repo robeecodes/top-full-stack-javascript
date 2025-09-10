@@ -1,6 +1,6 @@
-import InputField from "./InputField.jsx";
-import {useEditManager} from "../hooks/useEditManager.jsx";
-import {useFormManager} from "../hooks/useFormManager.jsx";
+import InputField from "./InputField";
+import {useEditManager} from "../hooks/useEditManager";
+import {useFormManager} from "../hooks/useFormManager";
 import '../styles/inputSection.scss';
 
 export function EducationalExperience({education, addEducation, deleteEducation, updateEducation}) {

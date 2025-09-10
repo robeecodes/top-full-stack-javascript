@@ -1,6 +1,6 @@
-import InputField from "./InputField.jsx";
-import {useFormManager} from "../hooks/useFormManager.jsx";
-import {useEditManager} from "../hooks/useEditManager.jsx";
+import InputField from "./InputField";
+import {useFormManager} from "../hooks/useFormManager";
+import {useEditManager} from "../hooks/useEditManager";
 import '../styles/inputSection.scss';
 
 export function PracticalExperience({practicalExperience, addExperience, updateExperience, deleteExperience}) {

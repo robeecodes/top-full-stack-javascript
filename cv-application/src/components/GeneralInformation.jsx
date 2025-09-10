@@ -1,6 +1,6 @@
 import {useState} from "react";
-import InputField from "./InputField.jsx";
-import {useFormManager} from "../hooks/useFormManager.jsx";
+import InputField from "./InputField";
+import {useFormManager} from "../hooks/useFormManager";
 import '../styles/inputSection.scss';
 
 export function GeneralInformation({generalDetails, onSubmit}) {

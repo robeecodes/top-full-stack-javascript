@@ -39,7 +39,7 @@ A simple library app where users can add, remove, and mark books as read. It use
 **[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/tic-tac-toe/)** |
 [View on GitHub](https://github.com/robeecodes/top-full-stack-javascript/tree/main/tic-tac-toe)  
 A classic Tic Tac Toe game implemented using JavaScript. The game allows two players to compete in a browser.
-  
+
 ![Tic Tac Toe Screenshot](project-screenshots/tic-tac-toe.avif)
 
 ---
@@ -74,7 +74,7 @@ Bonus demonstration of creating custom elements with [JavaScript Web Components]
 
 ---
 
-## 7. Weather App
+### 7. Weather App
 **[Live Preview](https://robeecodes-top-weather-app.onrender.com/)** | **[View Code on Github](https://github.com/robeecodes/top-full-stack-javascript/tree/main/weather-app)**  
 Basic interface to view the current weather at any given location using the [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api/) and [Unsplash Images API](https://unsplash.com/developers) to retrieve background images based on the weather.
 
@@ -82,7 +82,7 @@ Basic interface to view the current weather at any given location using the [Vis
 
 ---
 
-## 8. Battleship
+### 8. Battleship
 **[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/battleship/dist/)** | **[View Code on Github](https://github.com/robeecodes/top-full-stack-javascript/tree/main/battleship)**  
 The classic game of Battleship recreated for the web!
 
@@ -90,33 +90,37 @@ The classic game of Battleship recreated for the web!
 
 ---
 
-## 9. Homepage
+### 9. Homepage
 **[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/homepage/dist/)** | **[View Code on Github](https://github.com/robeecodes/top-full-stack-javascript/tree/main/homepage)**  
 Responsive homepage project.
 
-![Battleship Project Screenshot](project-screenshots/homepage.avif)
+![Homepage Project Screenshot](project-screenshots/homepage.avif)
 
-## Tech Stack ⚙️
+---
+
+### 10. Resume Builder
+
+**[Live Preview](https://robeecodes.github.io/top-full-stack-javascript/cv-application/dist/)** | **[View Code on Github](https://github.com/robeecodes/top-full-stack-javascript/tree/main/cv-application)**  
+Resume builder created using React.js. Includes options to export your CV as a PDF using the browser's print function as well as light/dark theme based on system preference.
+
+![Resume Builder Project Screenshot](project-screenshots/resume-builder.avif)
+
+---
+
+## Tech Stack
 
 - **HTML5** - Structure of the web pages
 - **CSS3** - Styling and responsiveness
 - **JavaScript** - Core functionality and logic
 - **Express.js** - Backend services
+- **React.js** - Reactive UI development
 - **Git & GitHub** - Version control and project management
 - **GitHub Pages** - Hosting the live demo of each project
 - **Render** - Hosting live demos with a backend
 
-## Getting Started
+---
 
-To get started with any of the projects, simply clone the repository:
-
-```bash
-git clone https://github.com/robeecodes/top-full-stack-javascript.git
-```
-
-Navigate to the specific project folder, and you can open it directly in your browser to view or edit the files.
-
-## Connect with Me! 🌍
+## Connect with Me!
 
 - [My Portfolio](https://robeecodes.com)
 - [LinkedIn](https://www.linkedin.com/in/robin-kingy/)
